@@ -1,0 +1,85 @@
+<% layout('layout/boilerplate')%> 
+
+<style>
+   *{
+        box-sizing: border-box;
+    }
+    @media (min-width: 1200px){
+        input{
+            width: 500px;
+            padding: 6px;
+        }
+        button{
+            width: 250px;
+            margin-left: 25%;
+        }
+    }
+
+    @media (min-width: 350px) and (max-width: 1119px){
+        input{
+            width: 300px;
+            padding: 6px;
+        }
+        button{
+            margin-left: 25%;
+        }
+        .bottone{
+            width: 150px;
+        }
+    }
+
+    .flexx{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+</style>
+
+    <div class="" id="container">
+        <div class="flexx">
+            <div class="">
+                <h1 class="title">Sign up</h1>
+    
+                <form action="/signup" method="POST">
+                    <div class="field">
+                        <label>Username</label>
+                        <div class="control">
+                            <input type="text" class="input" name="username">
+                        </div>
+                    </div>
+    
+                    <div class="field">
+                        <label>Email</label>
+                        <div class="control">
+                            <input type="email" class="input" name="email">
+                        </div>
+                    </div>
+    
+                    <div class="field">
+                        <label>Password</label>
+                        <div class="control">
+                            <input type="password" class="input" name="password" >
+                        </div>
+                    </div>
+    
+                    <div class="field mt-4">
+                        <div class="control">
+                            <button class="btn btn-dark bottone">Sign up</button>
+                        </div>
+                    </div>
+    
+                    <hr>
+    
+                    Or <a href="/signup">click here</a> to login!
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const container = document.getElementById('container');
+        if(document.documentElement.clientWidth > 1200){
+            container.classList.remove('container')
+        }
+    </script>

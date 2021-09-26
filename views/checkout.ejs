@@ -1,0 +1,51 @@
+<% layout('layout/boilerplate')%> ù
+
+
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="title ml-3 ">Cart</h1>
+    </div>
+    <div class="col-12 box mt-4">
+         <table class="table ">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+                
+                <% if(carts.length) {%> 
+                <% for(let cart of carts)  {%> 
+                    <tbody>                    
+                    <th class="nobold"><%= cart.name %> </th>
+                    <th class="nobold">$<%= cart.price %> </th>
+                    <th class="nobold"><%= cart.quantity %> </th>
+                    <th class="nobold">$<%= cart.price * cart.quantity %> </th>
+                    </tbody>
+                <% } %> 
+                
+        </table>
+        <% } else {%> 
+        <p>You don't have any products in your cart...</p>
+        <% } %> 
+    </div>
+    
+    <div class="col-12 box">
+        <h2 class="subtitle">Checkout</h2>
+
+         <%= carts.length %>  items
+         <hr>
+        <a href="/cart/checkout" class="btn btn-dark">Proceed to checkout</a>
+    </div>
+</div>
+
+<style>
+    .nobold{
+        font-weight: 300;
+    }
+</style>

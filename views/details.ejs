@@ -1,0 +1,81 @@
+<% layout('layout/boilerplate')%> 
+
+<style>
+    #immagine{
+        max-height: 600px;
+        max-width: 900px;
+    }
+    .product-information{
+        margin-left: 150px;
+    }
+    .descrizione{
+        max-width: 600px;
+    }
+    
+    .flexx{
+        display: flex;
+    }
+
+    @media (min-width:1200px){
+        .image{
+        max-width: 900px;
+        max-height: 900px;
+        }
+    }
+    @media  (min-width: 150px) and  (max-width: 600px){
+        #immagine{
+            max-width: 200px;
+            max-height: 350px;
+        }
+        .product-information{
+        margin-left: 5px;
+        }
+    }
+
+    @media (min-width: 150px) and (max-width: 420px){
+        #immagine{
+            max-width: 80%;
+        }
+        .flexx{
+        display: flex;
+        flex-wrap: wrap;
+        }
+    }
+
+    @media (min-width: 620) and (max-width: 800px){
+        #immagine{
+            max-width: 400px;
+            max-height: 550px;
+        }
+        .product-information{
+        margin-left: 5px;
+        }
+    }
+
+</style>
+
+<div class=" container">
+    <div class="flexx">
+        <div class="">
+            <figure class="image mb-6">
+                <img id="immagine" src="<%= product.image %>">
+            </figure>
+
+            <h1 class="title"><%= product.name %> </h1>
+
+            <p class="descrizione"><%= product.description %></p>
+        </div>
+
+        <div class="product-information">
+            <h2 class="subtitle">Information</h2>
+            <p><strong>Price: </strong>$<%= product.price %></p>
+            <p><strong>Author: </strong><%= product.author %></p>
+                <form action="/cart/<%= product._id %>" method="POST">
+                    <input type="number" class="input" min="1" name="quantity">
+                    <button class="btn btn-dark" type="submit">Add to cart</button>
+                </form>
+                
+                
+        </div>
+    </div>
+</div>

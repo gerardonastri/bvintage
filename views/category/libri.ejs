@@ -1,0 +1,77 @@
+<% layout('layout/boilerplate')%> 
+
+<style>
+    .hero{
+  background-color: #C2B28F;
+}
+
+.immagine{
+  max-height: 250px;
+}
+
+.bottone{
+  background-color: #42403f;
+  color: #e4f2ef  ;
+}
+.flexx{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.prodotto{
+  margin-right: 20px;
+}
+.carta{
+  width: 18rem;
+}
+
+@media (max-width:600px){
+  .carta{
+    width: 25rem;
+  }
+  .flexx{
+    justify-content: center;
+  }
+}
+</style>
+
+
+<div class="home">
+    <div class="hero ml-5 mr-5 text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-5 fs-1 text-white mt-5">Welcome to Bvintage</p>
+        <p>The best book store online</p>
+      </div>
+    </div>
+  </div>
+  <!--end of hero-->
+  <div class="container-fluid mt-3 ">
+  <div class="row ">
+    <div class="col-12">
+      <h2 class=" fs-1 text-center">Libri</h2>
+    </div>
+    <div class="flexx">
+      <% for(let product of products) {%>
+        <div class="mt-5 prodotto" >
+          <div class="card carta" >
+            <img src="<%=product.image%>"  class="card-img-top immagine" alt="...">
+            <div class="card-body p-blank-4">
+              <h5 class="card-title fs-2"><%= product.name %> </h5>
+              <p class="card-subtitle text-muted">$ <%= product.price %> </p>
+              <a href="/details/<%= product._id %>" class="btn bottone mt-2">View details</a>
+              
+            </div>
+          </div>
+        </div>
+        <% } %> 
+    </div>
+    
+    
+    
+  </div>
+  </div>
+
+    
+    
+  </div>
